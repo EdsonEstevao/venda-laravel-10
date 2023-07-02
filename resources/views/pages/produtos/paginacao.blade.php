@@ -4,7 +4,7 @@
         <h1 class="h2">Produtos</h1>
     </div>
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-2 pb-2 mb-3">
-        <form action="" class="form-control-lg d-flex justify-content-between w-100" method="GET">
+        <form action="{{ route('produto.index') }}" class="form-control-lg d-flex justify-content-between w-100" method="GET">
             <div class="d-flex align-items-center">
                 <input type="text" name="pesquisar" id="pesquisar" placeholder="Digite o nome">
                 <button class="btn btn-info mx-3">Pesquisar</button>

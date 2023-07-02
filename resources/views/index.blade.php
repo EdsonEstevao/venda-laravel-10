@@ -372,10 +372,13 @@
 </div>
 
 @yield('scripts')
-<script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('js/jquery-3.7.min.js') }}"></script>
+  <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('js/chart.umd.min.js') }}"></script>
+  <script src="{{ asset('js/dashboard.js') }}"></script>
+  <script src="{{ asset('js/color-modes.js') }}"></script>
+  {{-- BlocUI loading --}}
+  <script src="{{ asset('js/blocUI.js') }}"></script>
 
-    <script src="{{ asset('js/chart.umd.min.js') }}"></script>
-    <script src="{{ asset('js/dashboard.js') }}"></script>
-    <script src="{{ asset('js/color-modes.js') }}"></script>
 </body>
 </html>

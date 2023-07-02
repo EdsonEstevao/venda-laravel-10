@@ -7,14 +7,30 @@ use Illuminate\Http\Request;
 
 class ProdutosController extends Controller
 {
-    public function index() {
+    protected $produto;
+    public function __construct(Produto $produto)
+    {
+        $this->produto = $produto;
+    }
+    public function index(Request $request) {
 
         $data = [];
-        $produtos = Produto::all();
-
+        $pesquisa = $request->pesquisar;
+        
+        if($pesquisa == false) {
+            $produtos = Produto::all();
+            
+        }else {
+            
+            $produtos = $this->produto->getProdutosPesquisarIndex(search: $pesquisa ?? '');
+        }
+        
+        // dd($produtos);
+        // exit;
         $data = [
             'produtos' => $produtos,
         ];
+
 
 
         return view('pages.produtos.paginacao', $data);
@@ -25,15 +41,15 @@ class ProdutosController extends Controller
     public function create() {
         return view('pages.produtos.create');        
     }
-    public function edit(Produto $produto, Request $request) {
+    public function edit(Request $request) {
 
         dd($request->produto);
         exit;
 
     }
 
-    public function delete(Produto $produto, Request $request) {
-        dd($produto);
+    public function delete(Request $request) {
+        dd($request->produto);
         exit;
     }
 }
