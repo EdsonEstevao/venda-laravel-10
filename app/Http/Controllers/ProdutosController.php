@@ -49,7 +49,10 @@ class ProdutosController extends Controller
     }
 
     public function delete(Request $request) {
-        dd($request->produto);
-        exit;
+
+        $id = $request->id;
+        $produto = Produto::find($id);
+        $produto->delete();
+        return response()->json(['success' => true]);
     }
 }

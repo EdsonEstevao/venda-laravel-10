@@ -30,12 +30,8 @@
                 <td>{{ $p->nome }}</td>
                 <td>{{ 'R$' .' '.number_format($p->valor, 2, ',', '.')   }}</td>
                 <td class="d-flex justify-between align-items-center">
-                    <a href="{{ route('produto.edit', ['produto' => $p->id]) }}" class="btn btn-info mx-3">Editar</a>
-                    <form action="{{ route('produto.delete', ['produto' => $p->id]) }}" method="post">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Excluir</button>
-                    </form>               
+                    <a href="{{ route('produto.edit', ['produto' => $p->id]) }}" class="btn btn-info mx-3">Editar</a>                    
+                    <a onclick="deleteRegistroPaginacao('{{ route('produto.delete') }}', {{ $p->id }})" class="btn btn-danger">Excluir</a>
                 </td>
             </tr>
             @endforeach

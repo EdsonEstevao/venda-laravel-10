@@ -8,6 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Edson N. Estevao">
     <meta name="generator" content="Hugo 0.112.5">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>Gestão de Estoque</title>
 
     {{-- <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/dashboard/"> --}}
@@ -372,13 +373,17 @@
 </div>
 
 @yield('scripts')
-  <script src="{{ asset('js/jquery-3.7.min.js') }}"></script>
+  <script src="{{ asset('js/jquery-v1.11.1.min.js') }}"></script>
+  <!-- include jQuery -->
+  {{-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script> --}}
   <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('js/chart.umd.min.js') }}"></script>
   <script src="{{ asset('js/dashboard.js') }}"></script>
   <script src="{{ asset('js/color-modes.js') }}"></script>
   {{-- BlocUI loading --}}
-  <script src="{{ asset('js/blocUI.js') }}"></script>
+  <script src="{{ asset('js/blockUI.js') }}"></script>
+  {{-- script js personalizados --}}
+  <script src="{{ asset('js/projeto.js') }}"></script>
 
 </body>
 </html>
