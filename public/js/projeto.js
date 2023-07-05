@@ -35,3 +35,17 @@ function deleteRegistroPaginacao( route_url, id_registro ) {
     }
 
 }
+
+// *******************************************************
+$('#valor').inputmask('decimal', {
+    radixPoint:",",
+    groupSeparator: ".",
+    autoGroup: true,
+    digits: 2,
+    digitsOptional: false,
+    placeholder: '0',
+    rightAlign: false,
+    onBeforeMask: function (value, opts) {
+        return value;
+    }
+});

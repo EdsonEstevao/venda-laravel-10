@@ -55,10 +55,10 @@ class ProdutosController extends Controller
         
         $request['valor'] = $valor;
 
-
+        
         $data = $request->all();
-
-        dd($data == null);
+        
+        dd($data);
         exit;
 
         Produto::create($data);
