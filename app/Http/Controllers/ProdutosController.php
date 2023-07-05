@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FormRequestProduto;
 use App\Models\Produto;
 use Illuminate\Http\Request;
 
@@ -15,10 +16,12 @@ class ProdutosController extends Controller
     public function index(Request $request) {
 
         $data = [];
-        $pesquisa = $request->pesquisar;
+        $pesquisa = trim($request->pesquisar);
+        $produtos = [];
         
         if($pesquisa == false) {
-            $produtos = Produto::all();
+            // $produtos = Produto::all();
+            $produtos = $this->produto::all();
             
         }else {
             
@@ -41,6 +44,28 @@ class ProdutosController extends Controller
     public function create() {
         return view('pages.produtos.create');        
     }
+    
+    public function store(FormRequestProduto $request)
+    {
+        // dd($request->all());
+        // exit;
+        $valor = str_replace(".", ",",  $request->valor);
+
+        $valor = floatval(str_replace(",", ".", str_replace(".", "", $valor)));
+        
+        $request['valor'] = $valor;
+
+
+        $data = $request->all();
+
+        dd($data == null);
+        exit;
+
+        Produto::create($data);
+
+        return redirect()->route('produto.index');
+    }
+    
     public function edit(Request $request) {
 
         dd($request->produto);
