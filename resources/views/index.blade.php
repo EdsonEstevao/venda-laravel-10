@@ -380,6 +380,8 @@
   <script src="{{ asset('js/chart.umd.min.js') }}"></script>
   <script src="{{ asset('js/dashboard.js') }}"></script>
   <script src="{{ asset('js/color-modes.js') }}"></script>
+  {{-- InputMask --}}
+  <script src="{{ asset('js/jquery.inputmask.min.js') }}"></script>
   {{-- BlocUI loading --}}
   <script src="{{ asset('js/blockUI.js') }}"></script>
   {{-- script js personalizados --}}
