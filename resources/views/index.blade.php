@@ -13,18 +13,23 @@
 
     {{-- <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/dashboard/"> --}}
     
-
-@yield('styles')    
-
-<link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
-
-    <!-- Favicons -->
+    
+    
+    @yield('styles')    
+    
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+    
+<!-- Favicons -->
 <link rel="apple-touch-icon" href="{{ asset('icons/apple-touch-icon.png') }}" sizes="180x180">
 <link rel="icon" href="{{ asset('icons/favicon-32x32.png') }}" sizes="32x32" type="image/png">
 <link rel="icon" href="{{ asset('icons/favicon-16x16.png') }}" sizes="16x16" type="image/png">
 <link rel="manifest" href="{{ asset('icons/manifest.json') }}">
 <link rel="mask-icon" href="{{ asset('icons/safari-pinned-tab.svg') }}" color="#712cf9">
 <link rel="icon" href="{{ asset('icons/favicon.ico') }}">
+
+<link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+{{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"> --}}
+
 <meta name="theme-color" content="#712cf9">
 
 
@@ -384,8 +389,15 @@
   <script src="{{ asset('js/jquery.inputmask.min.js') }}"></script>
   {{-- BlocUI loading --}}
   <script src="{{ asset('js/blockUI.js') }}"></script>
+
+  
   {{-- script js personalizados --}}
   <script src="{{ asset('js/projeto.js') }}"></script>
+
+  {{-- Toast Message --}}
+  <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+  <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+  {!! Toastr::message() !!}
 
 </body>
 </html>

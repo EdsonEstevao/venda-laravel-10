@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\FormRequestProduto;
+use App\Models\Componentes;
 use App\Models\Produto;
 use Illuminate\Http\Request;
+use Brian2694\Toastr\Facades\Toastr;
+// use Brian2694\Toastr\Facades;
+
 
 class ProdutosController extends Controller
 {
@@ -47,29 +51,38 @@ class ProdutosController extends Controller
     
     public function store(FormRequestProduto $request)
     {
-        // dd($request->all());
-        // exit;
-        $valor = str_replace(".", ",",  $request->valor);
-
-        $valor = floatval(str_replace(",", ".", str_replace(".", "", $valor)));
+     
+        $componentes = new Componentes();
+        $request['valor'] = $componentes->format_mascara_dinheiro_decimal($request->valor);
         
-        $request['valor'] = $valor;
-
-        
-        $data = $request->all();
-        
-        dd($data);
-        exit;
+        $data = $request->all();     
 
         Produto::create($data);
-
+        Toastr::success('Registro Adicionado com sucesso!');
         return redirect()->route('produto.index');
     }
     
     public function edit(Request $request) {
+        
+        $produto = $this->produto::find($request->produto);
 
-        dd($request->produto);
-        exit;
+        return view('pages.produtos.edit', compact('produto'));
+
+    }
+
+    public function update( FormRequestProduto $request)
+    {
+        $componentes = new Componentes();
+        $request['valor'] = $componentes->format_mascara_dinheiro_decimal($request->valor);
+        
+        $produto = Produto::find($request->produto);
+        $data = $request->all();
+        
+        $produto->update($data);       
+        
+        Toastr::success('Registro Atualizado com sucesso!');
+
+        return redirect()->route('produto.index');
 
     }
 

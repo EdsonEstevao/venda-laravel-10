@@ -10,7 +10,6 @@ class Produto extends Model
     use HasFactory;
 
     protected $table = 'produtos';
-    protected $connection = 'mysql';
 
     protected $fillable = [
 

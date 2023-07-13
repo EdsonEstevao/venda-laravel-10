@@ -24,5 +24,6 @@ Route::prefix('produtos')->group(function() {
     Route::get('/create', [ProdutosController::class, 'create'])->name('produto.create');
     Route::post('/store', [ProdutosController::class, 'store'])->name('produto.store');
     Route::get('/edit', [ProdutosController::class, 'edit'])->name('produto.edit');
+    Route::put('/update', [ProdutosController::class, 'update'])->name('produto.update');
     Route::delete('/delete', [ProdutosController::class, 'delete'])->name('produto.delete');
 });
