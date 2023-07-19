@@ -44,7 +44,7 @@ $('#valor').inputmask('decimal', {
     digits: 2,
     digitsOptional: false,
     placeholder: '0',
-    rightAlign: false,
+    rightAlign: false,    
     onBeforeMask: function (value, opts) {
         return value;
     }
